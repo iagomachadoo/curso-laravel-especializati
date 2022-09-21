@@ -1,0 +1,141 @@
+- O diretório public contém o document root (public/index.php) da aplicação. O laragon consegue entender que o document root da aplicação é o diretório public;
+
+
+-Após criar o document root (public/index.php) da aplicação, deve-se recarregar o apache ou parar e iniciar novamente o laragon para que o virtual host seja criado;
+
+
+-Há 3 formas de instalar o Laravel para um projeto:
+
+i-Clonando o repositório do laravel no github (se o prjeto for criado clonando o repositório do laravel no github, é necessário criar o arquivo .env a  partir do .env.example e rodar o comando composer install, para baixar todas as dependências do projeto, criando assim o diretório vendor que contém todos os pacotes de terceiros que o laravel necessita);
+
+ii-Instalação atraves do composer (composer create-prject --prefer-dist laravel/laravel nomeProjeto);
+
+iii-Instalação atraves de um instalador que o composer fornece (composer-setup.php);
+
+
+-Comando para instalar o laravel via composer
+-- composer create-prject --prefer-dist laravel/laravel nomeProjeto
+*por default, o nome do projeto será laravel, mas nomeProjeto é a renomeação do valor default
+
+
+-Depois que o virtual host estiver funcionando, deve-se copiar a url do projeto e atualizar o arquivo .env em APP_URL = url-do-projeto;
+
+-Mudar o timezone do arquivo config/app.php de 'UTC' para 'America/Sao_Paulo'. Esses timezones são os mesmos usados no php; 
+
+
+* O comando touch nomeArq.ext serve para criar um arquivo
+
+
+-Estrutura e organização do laravel
+
+--A pasta 'vendor' contém todos os pacotes de terceiros ue vem junto com a instalação do laravel. Quem controla essa pasta é o composer;
+
+--A pasta 'tests' é onde são criados os testes para a aplicação;
+
+--A pasta 'storage' armazena por exemplo, os aquivos de upload, de tempo de execução como: arquivos de cache, sessions, testing e views. A pasta storage/app/public serve ára armazenar os arquivos baixados (upload);
+
+--A pasta 'routes' é onde fica a parte de gestão de rotas da aplicação;
+
+--A pasta 'resources' cuida do armazenamento da parte visual da aplicação;
+
+--A pasta 'public' contém o document root (public/index.php) da aplicação. Uma questão de segurança esta ligada ao document root da aplicação, caso ele não esteja dentro da pasta public ou qualquer outro diretório e estaja na raiz da aplicação, via browser será possível acessar os arquivos críticos que ficam na raíz, isso deve ser evitado a todo custo;  
+
+
+--A pasta 'database' cuida de todo o gerenciamento do banco de dados:
+*databse/seeders -> é utilizada para a área administrativa
+
+*databse/factories -> é mais utilizada para testes localmente, criando infos fictícias
+
+*database/migrations -> é responsável pela criação das tabelas do banco de dados
+
+
+--A pasta 'config' cuida das configurações da aplicação;
+
+
+--O diretório 'bootstrap' é o grande responsável pelo start da aplicação, mesmo o diretório public contendo o document root, é na pasta bootstrap onde a aplicação começa a rodar;
+
+
+--O diretório 'app' é onde o trabalho de contrução da aplicação é feito:
+*app/console -> é onde fica armazenado os comandos que foram criados como, um comando de automatização, envio de emails
+
+*app/exceptions -> onde é feito o tratamento de excessões
+
+*app/http/controllers -> armazena os crontollers da aplicação
+
+*app/http/middleware -> armazena os filtros da aplicação 
+
+app/http/kernel.php -> é onde é feito o resgistro dos filtros
+
+*app/models -> aramzena os modelos 
+
+*app/providers -> é onde são definidos os provedores da aplicação
+
+
+--O arquivo '.env' armazena todas as informações sensíveis da aplicação, como as credenciais;
+
+
+--O c.l.i (interface de linha de comando) artisan é extremamente importante, ele serve para criar diversas estruturas de arquivos como, arquivos de controller, models e outros;
+
+
+--O arquivo 'composer.json' é onde ficam armazenadas e são definidas as configurações da aplicação;
+
+
+--O arquivo 'composer.lock' é um histórico dos pacotes que foram instalados no projeto;
+
+
+--O arquivo 'package.json' é p gerenciador de dependencias do javascript;
+
+
+--O arquivo 'phpunit.xml' é responsável pelas configurações dos testes da aplicação;
+
+
+--O arquivo 'webpack.mix.js' lida com a complilação de alguns arquivos;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
