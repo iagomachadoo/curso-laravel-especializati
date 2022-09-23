@@ -1,4 +1,4 @@
-- O diretório public contém o document root (public/index.php) da aplicação. O laragon consegue entender que o document root da aplicação é o diretório public;
+- O diretório public contém o document root (public/index.php) da aplicação. O laragon consegue entender que o document root da aplicação esta no diretório public;
 
 
 -Após criar o document root (public/index.php) da aplicação, deve-se recarregar o apache ou parar e iniciar novamente o laragon para que o virtual host seja criado;
@@ -14,25 +14,24 @@ iii-Instalação atraves de um instalador que o composer fornece (composer-setup
 
 
 -Comando para instalar o laravel via composer
--- composer create-prject --prefer-dist laravel/laravel nomeProjeto
-*por default, o nome do projeto será laravel, mas nomeProjeto é a renomeação do valor default
+-- composer create-prject --prefer-dist laravel/laravel nomeProjeto (por default, o nome do projeto será laravel, mas 'nomeProjeto' é a renomeação do valor default)
 
 
 -Depois que o virtual host estiver funcionando, deve-se copiar a url do projeto e atualizar o arquivo .env em APP_URL = url-do-projeto;
 
--Mudar o timezone do arquivo config/app.php de 'UTC' para 'America/Sao_Paulo'. Esses timezones são os mesmos usados no php; 
+-Mudar o timezone do arquivo config/app.php de 'UTC' para 'America/Sao_Paulo' (esses timezones são os mesmos usados no php); 
 
 
 * O comando touch nomeArq.ext serve para criar um arquivo
 
 
--Estrutura e organização do laravel
+-ESTRUTURA E ORGANIZAÇÃO DO LARAVEL
 
---A pasta 'vendor' contém todos os pacotes de terceiros ue vem junto com a instalação do laravel. Quem controla essa pasta é o composer;
+--A pasta 'vendor' contém todos os pacotes de terceiros que vem junto com a instalação do laravel. Quem controla essa pasta é o composer;
 
 --A pasta 'tests' é onde são criados os testes para a aplicação;
 
---A pasta 'storage' armazena por exemplo, os aquivos de upload, de tempo de execução como: arquivos de cache, sessions, testing e views. A pasta storage/app/public serve ára armazenar os arquivos baixados (upload);
+--A pasta 'storage' armazena por exemplo, os aquivos de upload, de tempo de execução como: arquivos de cache, sessions, testing e views. A pasta storage/app/public serve para armazenar os arquivos baixados (upload);
 
 --A pasta 'routes' é onde fica a parte de gestão de rotas da aplicação;
 
@@ -42,9 +41,9 @@ iii-Instalação atraves de um instalador que o composer fornece (composer-setup
 
 
 --A pasta 'database' cuida de todo o gerenciamento do banco de dados:
-*databse/seeders -> é utilizada para a área administrativa
+*database/seeders -> é utilizada para a área administrativa
 
-*databse/factories -> é mais utilizada para testes localmente, criando infos fictícias
+*database/factories -> é mais utilizada para testes localmente, criando infos fictícias
 
 *database/migrations -> é responsável pela criação das tabelas do banco de dados
 
@@ -56,7 +55,7 @@ iii-Instalação atraves de um instalador que o composer fornece (composer-setup
 
 
 --O diretório 'app' é onde o trabalho de contrução da aplicação é feito:
-*app/console -> é onde fica armazenado os comandos que foram criados como, um comando de automatização, envio de emails
+*app/console -> é onde fica armazenado os comandos que foram criados como, um comando de automatização, envio de emails e outros
 
 *app/exceptions -> onde é feito o tratamento de excessões
 
@@ -74,7 +73,7 @@ app/http/kernel.php -> é onde é feito o resgistro dos filtros
 --O arquivo '.env' armazena todas as informações sensíveis da aplicação, como as credenciais;
 
 
---O c.l.i (interface de linha de comando) artisan é extremamente importante, ele serve para criar diversas estruturas de arquivos como, arquivos de controller, models e outros;
+--O arquivo 'artisan' que é um c.l.i (interface de linha de comando) é extremamente importante, ele serve para criar diversas estruturas de arquivos como, arquivos de controller, models e outros;
 
 
 --O arquivo 'composer.json' é onde ficam armazenadas e são definidas as configurações da aplicação;
@@ -83,13 +82,102 @@ app/http/kernel.php -> é onde é feito o resgistro dos filtros
 --O arquivo 'composer.lock' é um histórico dos pacotes que foram instalados no projeto;
 
 
---O arquivo 'package.json' é p gerenciador de dependencias do javascript;
+--O arquivo 'package.json' é para o gerenciador de dependencias do javascript;
 
 
 --O arquivo 'phpunit.xml' é responsável pelas configurações dos testes da aplicação;
 
 
 --O arquivo 'webpack.mix.js' lida com a complilação de alguns arquivos;
+
+
+-ROTAS
+
+-O laravel tem um tratamento de rotas para que elas se tornem amigáveis (sem o tipo de extensão na url);
+
+
+-A rotas de uma aplicação laravel ficam dentro de routes/web.php;
+
+
+-Estrutura de uma rota: Route::get('/', function () {
+    return view('welcome');
+});
+
+*Route::get -> 'get' é o tipo de verbo http da rota
+
+*'/' -> rota
+
+*function () {
+    return view('welcome'); 
+
+} -> função de callback que retorna uma view que fica dentro de 'resources/views/nomeView.blade.php'
+
+
+-Para acessar uma view que não esteja na raiz da pasta view como por exemplo resources/views/site/empresa.blade.php, no retorno do callback basta passar o caminho dessa view, separado por ponto ao invés de barra (return view(site.empresa));
+
+
+-As rotas suportam diversos métodos http, como get, post, entre outros. O método 'post' é usado para o cadastrar um registro;
+
+
+-As rotas do tipo 'any' aceitam qualquer tipo de requisição http, mas não é muito aconselhável o seu uso, pois pode comprometer a segurança da aplicação;
+
+
+-As rotas do tipo 'match' aceitam os tipos de requisições que forem passadas como parâmetro. Por exemplo Route::match(['get', 'post'], '/match', function (){ return 'Match';});.Essa rota vai aceitar as requisições do tipo get e post;
+
+
+-Para utilizarmos rotas com parâmetros, devemos passar uma 'flag' junto a url e como parâmetro para o callback. Por exemplo Route::get('/contato/{flag}', function($contato){ return "Contato via {$contato}";});. O parâmetro dinâmico 'flag' que é passado na url não deve ser usado junto ao '$', pois aqui não é a variável em si, mas uma indicação da variável. O nome do parâmetro que está no callback é uma variável e não precisa ter o mesmo nome do parâmetro passaddo na url, mas é bom usar o mesmo nome para evitar confusões;
+
+
+-Outro padrão de rotas é por exemplo Route::get('/categoria/{flag}/posts', function($categoria){return "Posts da categoria: {$categoria}";});, onde é passado mais prefixos após a flag. Nesse exemplo na aula, o prof disse que os nome dos parâmetros deveriam ser os mesmos para funcionar, mas funcionou com nomes diferentes, caso não funcione, deve-se deixar os parâmetros com os mesmos nomes;
+
+
+-Podemos usar parâmetros opcionais nas rotas, como por exemplo Route::get('/produtos/{idProduto?}', function($idProduto = ''){return "Produto(s): {$idProduto}";});, o parâmetro dentro da rota deve ser passado junto com um sinal de interrogação que indica que ele é opcional e o parâmetro que é passado dentro do callback deve ter um valor default. Esse tipo de rota também aceita prefixos logo após o parâmetro na url;
+
+
+-É possível redirecionar uma rota com os helpers que o laravel dispões. Um desses helpers é o 'redirect()'. No exemplo abaixo, a rota '/redirect1' está redirecioando para a rota '/redirect2' 
+
+Route::get('/redirect1', function(){return redirect('/redirect2');});
+
+Route::get('/redirect2', function(){return 'Redirect 2';});
+
+-Outra forma de redirecionar uma rota sem precisar de um callback e do controller, é redirecionar diretamente como por exemplo, Route::redirect('/redirect1', '/redirect2');. Nesse exemplo o redirecionamento está sendo feito de forma mais resumida e direta com o 'método' redirect;
+
+
+-Há formas mais resumidas de retonar uma view, contudo, essa forma não é muito aconselhada, pois na maioria das vezes é necessário passar por um controller para obter dados inportantes, mas se a view for bem simples e estática, esse modo pode ser interessante. Um exemplo seria Route::view('/view', 'sobre');, onde a rota '/view' está chamando a view 'sobre'; 
+
+
+-Trabalhar com rotas nomeadas torna a manutenção do código mais simples. A forma de fazer isso é trabalhando com o name da rota e referenciado ela a partir do seu name. Nesse exemplo, a rota '/url-quem-somos' sera referenciada pelo seu 'name'->'quem.somos' e a rota '/redirect3' irá redirecionar para a rota '/url-quem-somos' a partir do seu 'name'. Dessa forma, se mudarmos a url '/url-quem-somos', a rota ainda continuara funcionando porque esta sendo referenciado pela 'name'   
+
+Route::get('/url-quem-somos', function(){return '12345678';})->name('quem.somos');
+
+Route::get('/redirect3', function(){return redirect()->route('quem.somos');
+}); 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
