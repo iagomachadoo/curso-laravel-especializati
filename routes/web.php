@@ -12,6 +12,72 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/login', function(){
+    return 'Faça o Login';
+})->name('login');
+
+//Início grupo de rotas
+//Rotas para a área administrativa (admin)
+
+/* Route::middleware(['App\Http\Middleware\Authenticate'])->group(function(){
+
+    Route::prefix('admin')->group(function(){
+
+        Route::namespace('App\Http\Controllers\Admin')->group(function(){
+
+            Route::name('admin.')->group(function(){
+                Route::get('/dashboard', 'TesteController@teste')->name('dashboard');
+            
+                Route::get('/financeiro', 'TesteController@teste')->name('financeiro');
+            
+                Route::get('/produtos', 'TesteController@teste')->name('produtos');
+                
+                Route::get('/', 'TesteController@teste')->name('home');
+
+            });
+        });
+
+
+        Route::get('/', function(){
+            return 'Admin';
+        });//rota raiz ou rota /
+
+        
+    });
+}); */
+
+Route::group([
+    'middleware' => ['App\Http\Middleware\Authenticate'],
+    'prefix' => 'admin',
+    'namespace' => 'App\Http\Controllers\Admin'
+    //o name não funciona
+
+], function(){
+    Route::name('admin.')->group(function(){
+        Route::get('/dashboard', 'TesteController@teste')->name('dashboard');
+    
+        Route::get('/financeiro', 'TesteController@teste')->name('financeiro');
+    
+        Route::get('/produtos', 'TesteController@teste')->name('produtos');
+        
+        Route::get('/', 'TesteController@teste')->name('home');
+
+    });
+});
+
+/* Route::get('admin/dashboard', function(){
+    return 'Home admin';
+})->middleware('auth');//middleware('auth'); faz com que seja necessário uma autenticação para acessar a área admin, assim, irá redirecionar para a rota /login. É possível passar um array com diversos middleware existentes como por exemplo middleware(['auth', outraMiddleware]); 
+
+Route::get('admin/financeiro', function(){
+    return 'Financeiro admin';
+})->middleware('auth');
+
+Route::get('admin/produtos', function(){
+    return 'Produtos admin';
+})->middleware('auth');
+ */
+//Fim grupo de rotas
 
 Route::get('/', function () {
     return view('welcome');
