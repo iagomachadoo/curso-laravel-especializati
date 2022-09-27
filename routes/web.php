@@ -12,14 +12,41 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::prefix('/produtos')->group(function(){
+
+    Route::namespace('App\Http\Controllers')->group(function(){
+
+        Route::name('produtos.')->group(function(){
+            Route::get('/cadastrar', 'ProdutoController@cadastrar')->name('cadastrar');//rota para cadastrar novo produto
+            
+            Route::get('/{id}', 'ProdutoController@show')->name('show');//rota para exibir um produto específico */
+            
+            Route::get('/', 'ProdutoController@index')->name('index');//rota para a listagem de produtos
+        });
+    });
+});
+
+/* Route::get('/produtos', 'App\Http\Controllers\ProdutoController@index')->name('produtos.index');//rota para a listagem de produtos
+
+Route::get('/produtos/cadastrar', 'App\Http\Controllers\ProdutoController@cadastrar')->name('produtos.cadastrar');//rota para cadastrar novos produtos
+
+Route::get('/produtos/{id}', 'App\Http\Controllers\ProdutoController@show')->name('produtos.show');//rota para exibir um produto específico */
+
+
+
+
 Route::get('/login', function(){
     return 'Faça o Login';
 })->name('login');
 
+
+//Começo Rotas criadas na aula de rotas
+
+/* 
 //Início grupo de rotas
 //Rotas para a área administrativa (admin)
 
-/* Route::middleware(['App\Http\Middleware\Authenticate'])->group(function(){
+Route::middleware(['App\Http\Middleware\Authenticate'])->group(function(){
 
     Route::prefix('admin')->group(function(){
 
@@ -44,7 +71,7 @@ Route::get('/login', function(){
 
         
     });
-}); */
+});
 
 Route::group([
     'middleware' => ['App\Http\Middleware\Authenticate'],
@@ -65,7 +92,7 @@ Route::group([
     });
 });
 
-/* Route::get('admin/dashboard', function(){
+Route::get('admin/dashboard', function(){
     return 'Home admin';
 })->middleware('auth');//middleware('auth'); faz com que seja necessário uma autenticação para acessar a área admin, assim, irá redirecionar para a rota /login. É possível passar um array com diversos middleware existentes como por exemplo middleware(['auth', outraMiddleware]); 
 
@@ -76,7 +103,7 @@ Route::get('admin/financeiro', function(){
 Route::get('admin/produtos', function(){
     return 'Produtos admin';
 })->middleware('auth');
- */
+ 
 //Fim grupo de rotas
 
 Route::get('/', function () {
@@ -111,9 +138,9 @@ Route::get('/produtos/{idProduto?}', function ($idProduto = ''){
     return "Produto(s): {$idProduto}";
 });
 
-/* Route::get('/redirect1', function(){
+Route::get('/redirect1', function(){
     return redirect('/redirect2');
-}); */
+});
 
 Route::redirect('/redirect1', '/redirect2');
 
@@ -121,17 +148,19 @@ Route::get('/redirect2', function(){
     return 'Redirect 2';
 });
 
-/* Route::get('/view', function(){
+Route::get('/view', function(){
     return view('sobre');
-}); */
+});
 
 Route::view('/view', 'sobre');
 
-/* Rotas nomeadas */
+//Rotas nomeadas
 Route::get('/url-quem-somos', function(){
     return '12345678';
 })->name('quem.somos');
 
 Route::get('/redirect3', function(){
     return redirect()->route('quem.somos');
-});
+}); 
+*/
+//Fim Rotas criadas na aula de rotas
