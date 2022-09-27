@@ -6,6 +6,24 @@ use Illuminate\Http\Request;
 
 class ProdutoController extends Controller
 {
+    //Trabalhando com construtor
+
+    //Criando um atributo
+
+    protected $request;
+
+    public function __construct(Request $request)
+    {
+        $this->request = $request;
+        dd($request);
+
+        /*
+        //pegando um parâmetro da requisição
+        $parametro = $request->parm1;
+        dd($parametro);
+        */
+    }
+    
     /**
      * Display a listing of the resource.
      *
