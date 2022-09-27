@@ -6,40 +6,79 @@ use Illuminate\Http\Request;
 
 class ProdutoController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
-        $produtos = ['Produto 1', 'Produto 2', 'Produto 3'];
-
-        return $produtos;
+        return 'Listagem de Produtos';
     }
 
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        //
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     public function show($id)
     {
-        return "Exibindo o produto com id: {$id}";
-    }
-    
-    public function creat()
-    {
-        return 'Exibindo o form de cadastro de um novo produto';
+        //
     }
 
-    public function store()
-    {
-        return 'Cadastrar um novo produto';
-    }
-    
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     public function edit($id)
     {
-        return "Exibindo o form para editar o produto {$id}";
+        //
     }
 
-    public function update($id)
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
     {
-        return "Editando o produto {$id}";
+        //
     }
 
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     public function destroy($id)
     {
-        return "Apagando o produto {$id}";
+        //
     }
 }

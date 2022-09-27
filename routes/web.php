@@ -15,27 +15,9 @@ use Illuminate\Support\Facades\Route;
 
 
 //Começo CRUD
-Route::prefix('/produtos')->group(function(){
 
-    Route::namespace('App\Http\Controllers')->group(function(){
+//Route::resource('produtos', 'App\Http\Controllers\ProdutoController');//apenas essa linha substitui todas as linhas do CRUD feito manualmente
 
-        Route::name('produtos.')->group(function(){
-            Route::delete('/{id}', 'ProdutoController@destroy')->name('destroy');//rota para a apagar de um registro
-
-            Route::put('/{id}', 'ProdutoController@update')->name('update');//rota para a edição de um registro
-
-            Route::post('/', 'ProdutoController@store')->name('store');//rota para cadastrar um novo registro
-
-            Route::get('/{id}/edit', 'ProdutoController@edit')->name('edit');//rota para o form de edição de um registro
-
-            Route::get('/creat', 'ProdutoController@creat')->name('creat');//rota para o form de cadastro de um novo registro
-            
-            Route::get('/{id}', 'ProdutoController@show')->name('show');//rota para exibir um registro específico */
-            
-            Route::get('/', 'ProdutoController@index')->name('index');//rota para a listagem de registros
-        });
-    });
-});
 //Fim CRUD
 
 
