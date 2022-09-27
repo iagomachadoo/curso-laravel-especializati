@@ -18,10 +18,28 @@ class ProdutoController extends Controller
         return "Exibindo o produto com id: {$id}";
     }
     
-    public function cadastrar()
+    public function creat()
     {
         return 'Exibindo o form de cadastro de um novo produto';
     }
-    
 
+    public function store()
+    {
+        return 'Cadastrar um novo produto';
+    }
+    
+    public function edit($id)
+    {
+        return "Exibindo o form para editar o produto {$id}";
+    }
+
+    public function update($id)
+    {
+        return "Editando o produto {$id}";
+    }
+
+    public function destroy($id)
+    {
+        return "Apagando o produto {$id}";
+    }
 }

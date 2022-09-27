@@ -12,25 +12,40 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
+//Começo CRUD
 Route::prefix('/produtos')->group(function(){
 
     Route::namespace('App\Http\Controllers')->group(function(){
 
         Route::name('produtos.')->group(function(){
-            Route::get('/cadastrar', 'ProdutoController@cadastrar')->name('cadastrar');//rota para cadastrar novo produto
+            Route::delete('/{id}', 'ProdutoController@destroy')->name('destroy');//rota para a apagar de um registro
+
+            Route::put('/{id}', 'ProdutoController@update')->name('update');//rota para a edição de um registro
+
+            Route::post('/', 'ProdutoController@store')->name('store');//rota para cadastrar um novo registro
+
+            Route::get('/{id}/edit', 'ProdutoController@edit')->name('edit');//rota para o form de edição de um registro
+
+            Route::get('/creat', 'ProdutoController@creat')->name('creat');//rota para o form de cadastro de um novo registro
             
-            Route::get('/{id}', 'ProdutoController@show')->name('show');//rota para exibir um produto específico */
+            Route::get('/{id}', 'ProdutoController@show')->name('show');//rota para exibir um registro específico */
             
-            Route::get('/', 'ProdutoController@index')->name('index');//rota para a listagem de produtos
+            Route::get('/', 'ProdutoController@index')->name('index');//rota para a listagem de registros
         });
     });
 });
+//Fim CRUD
 
-/* Route::get('/produtos', 'App\Http\Controllers\ProdutoController@index')->name('produtos.index');//rota para a listagem de produtos
+
+/* 
+Route::get('/produtos', 'App\Http\Controllers\ProdutoController@index')->name('produtos.index');//rota para a listagem de produtos
 
 Route::get('/produtos/cadastrar', 'App\Http\Controllers\ProdutoController@cadastrar')->name('produtos.cadastrar');//rota para cadastrar novos produtos
 
-Route::get('/produtos/{id}', 'App\Http\Controllers\ProdutoController@show')->name('produtos.show');//rota para exibir um produto específico */
+Route::get('/produtos/{id}', 'App\Http\Controllers\ProdutoController@show')->name('produtos.show');//rota para exibir um produto específico 
+*/
 
 
 
@@ -41,7 +56,6 @@ Route::get('/login', function(){
 
 
 //Começo Rotas criadas na aula de rotas
-
 /* 
 //Início grupo de rotas
 //Rotas para a área administrativa (admin)
@@ -162,5 +176,5 @@ Route::get('/url-quem-somos', function(){
 Route::get('/redirect3', function(){
     return redirect()->route('quem.somos');
 }); 
-*/
 //Fim Rotas criadas na aula de rotas
+*/
