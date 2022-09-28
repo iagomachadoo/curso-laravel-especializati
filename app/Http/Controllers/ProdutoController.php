@@ -14,14 +14,18 @@ class ProdutoController extends Controller
 
     public function __construct(Request $request)
     {
-        $this->request = $request;
-        dd($request);
+        //$this->request = $request;
+        //dd($request);
 
         /*
         //pegando um parâmetro da requisição
         $parametro = $request->parm1;
         dd($parametro);
         */
+
+        //$this->middleware('App\Http\Middleware\Authenticate')->only(['create', 'show', 'store']);
+
+        $this->middleware('App\Http\Middleware\Authenticate')->except(['index', 'show']);
     }
     
     /**
@@ -32,27 +36,32 @@ class ProdutoController extends Controller
     public function index()
     {
         return 'Listagem de Produtos';
+
+        //$this->request;
     }
 
     /**
      * Show the form for creating a new resource.
+     * Mostre o formulário para criar um novo recurso.
      *
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        //
+        return 'Mostrar o formulário pra criar um novo Produtos';
+        
     }
 
     /**
      * Store a newly created resource in storage.
+     * Armazene um recurso recém-criado no armazenamento.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
@@ -63,7 +72,7 @@ class ProdutoController extends Controller
      */
     public function show($id)
     {
-        //
+        return "Mostrar produto {$id}";
     }
 
     /**
@@ -74,7 +83,8 @@ class ProdutoController extends Controller
      */
     public function edit($id)
     {
-        //
+        return 'Mostrar o formulário pra editar um novo Produtos';
+        
     }
 
     /**

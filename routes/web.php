@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 //Começo CRUD
 
-//Route::resource('produtos', 'App\Http\Controllers\ProdutoController');//apenas essa linha substitui todas as linhas do CRUD feito manualmente
+Route::resource('produtos', 'App\Http\Controllers\ProdutoController');//->middleware('App\Http\Middleware\Authenticate');//apenas essa linha substitui todas as linhas do CRUD feito manualmente
 
 //Fim CRUD
 
