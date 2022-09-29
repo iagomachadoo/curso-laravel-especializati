@@ -35,13 +35,13 @@ class ProdutoController extends Controller
      */
     public function index()
     {
-        $teste = '<h1>Olá, mundo!</h1>';
+        //$teste = '<h1>Olá, mundo!</h1>';
 
         /* return view('teste', [
             'teste' => $teste
         ]); */
 
-        return view('teste', compact('teste'));
+        return view('Admin.pages.produtos.index'/* , compact('teste') */);
 
         //$this->request;
     }
@@ -54,8 +54,7 @@ class ProdutoController extends Controller
      */
     public function create()
     {
-        return 'Mostrar o formulário pra criar um novo Produtos';
-        
+        return view('Admin.pages.produtos.create');
     }
 
     /**
