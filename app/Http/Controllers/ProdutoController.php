@@ -25,7 +25,7 @@ class ProdutoController extends Controller
 
         //$this->middleware('App\Http\Middleware\Authenticate')->only(['create', 'show', 'store']);
 
-        $this->middleware('App\Http\Middleware\Authenticate')->except(['index', 'show']);
+        //$this->middleware('App\Http\Middleware\Authenticate')->except(['index', 'show']);
     }
     
     /**
@@ -35,7 +35,14 @@ class ProdutoController extends Controller
      */
     public function index()
     {
-        return 'Listagem de Produtos';
+        $teste = 'Essa é uma variável vinda do controller';
+        $teste2 = 123456789;
+
+        /* return view('teste', [
+            'teste' => $teste
+        ]); */
+
+        return view('teste', compact('teste', 'teste2'));
 
         //$this->request;
     }
