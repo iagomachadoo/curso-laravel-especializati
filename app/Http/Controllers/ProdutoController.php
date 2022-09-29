@@ -35,14 +35,13 @@ class ProdutoController extends Controller
      */
     public function index()
     {
-        $teste = 'Essa é uma variável vinda do controller';
-        $teste2 = 123456789;
+        $teste = '<h1>Olá, mundo!</h1>';
 
         /* return view('teste', [
             'teste' => $teste
         ]); */
 
-        return view('teste', compact('teste', 'teste2'));
+        return view('teste', compact('teste'));
 
         //$this->request;
     }
