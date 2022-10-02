@@ -35,13 +35,14 @@ class ProdutoController extends Controller
      */
     public function index()
     {
-        //$teste = '<h1>Olá, mundo!</h1>';
+        $teste = 1;
+        $teste2 = [];
 
         /* return view('teste', [
             'teste' => $teste
         ]); */
 
-        return view('Admin.pages.produtos.index'/* , compact('teste') */);
+        return view('Admin.pages.produtos.index', compact('teste', 'teste2'));
 
         //$this->request;
     }
