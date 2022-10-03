@@ -1,0 +1,1 @@
+document.body.style.background = "#ffb2b2";

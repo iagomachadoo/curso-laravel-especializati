@@ -131,6 +131,7 @@
     --}}
 
     {{--Includes, components e slot--}}
+    {{--
     @include('Admin.includes.alerts.alert', ['conteudo' => ' - Alerta incluído'])
     
     @component('Admin.components.card')
@@ -140,15 +141,18 @@
 
         Esse é o conteúdo do card
     @endcomponent
+    --}}
 @endsection
 
-{{--
-<style>
-    .first{
-        background-color: blue;
-    }
-    .last{
-        background-color: red;
-    }
-</style>
+
+
+
+{{-- 
+@push('style')
+    <link rel="stylesheet" href="{{asset('assets/css/style1.css')}}">
+@endpush
+
+@push('script')
+    <script src="{{asset('assets/js/script.js')}}"></script>
+@endpush 
 --}}
