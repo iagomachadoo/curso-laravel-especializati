@@ -37,12 +37,13 @@ class ProdutoController extends Controller
     {
         $teste = 1;
         $teste2 = [];
-
+        $produtos = ['produto 1', 'produto 2', 'produto 3', 'produto 4', 'geladeira'];
+        
         /* return view('teste', [
             'teste' => $teste
         ]); */
 
-        return view('Admin.pages.produtos.index', compact('teste', 'teste2'));
+        return view('Admin.pages.produtos.index', compact('teste', 'teste2', 'produtos'));
 
         //$this->request;
     }

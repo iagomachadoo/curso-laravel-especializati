@@ -6,13 +6,17 @@
 
     <h1>Exibindo os produtos</h1>
 
+    {{-- 
     <ul>
         <li>produto 1</li>
         <li>produto 2</li>
         <li>produto 3</li>
         <li>produto 4</li>
         <li>produto 5</li>
-    </ul>
+    </ul> 
+    --}}
+
+    {{-- Estrutura de controle --}}
 
     {{-- 
     @if ($teste === 123)
@@ -103,4 +107,38 @@
             Default
     @endswitch
     --}}
+
+    {{-- Estrutura de repetição --}}
+
+    {{--
+    @if (isset($produtos))
+        <ul>
+            @foreach ($produtos as $produto)
+                <li>{{$produto}}</li>
+            @endforeach
+        </ul>
+    @endif
+    --}}
+
+    {{--
+    <ul>
+        @forelse ($produtos as $produto)  
+            <li class="@if ($loop->first) first @endif @if ($loop->last) last @endif">{{$produto}}</li>
+        @empty
+            <li>Não existem produtos na lista</li>
+        @endforelse
+    </ul>
+    --}}
+    
 @endsection
+
+{{--
+<style>
+    .first{
+        background-color: blue;
+    }
+    .last{
+        background-color: red;
+    }
+</style>
+--}}
