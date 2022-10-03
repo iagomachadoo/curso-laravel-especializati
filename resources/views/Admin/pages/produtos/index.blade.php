@@ -129,7 +129,17 @@
         @endforelse
     </ul>
     --}}
+
+    {{--Includes, components e slot--}}
+    @include('Admin.includes.alerts.alert', ['conteudo' => ' - Alerta incluído'])
     
+    @component('Admin.components.card')
+        @slot('titulo')
+            Esse é o título do card
+        @endslot
+
+        Esse é o conteúdo do card
+    @endcomponent
 @endsection
 
 {{--
