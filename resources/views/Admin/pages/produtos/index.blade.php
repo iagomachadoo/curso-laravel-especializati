@@ -142,6 +142,11 @@
         Esse é o conteúdo do card
     @endcomponent
     --}}
+
+    {{-- Trabalhando com formulários --}}
+    <a class="btn btn-primary" href="{{route('produtos.create')}}" role="button">Cadastrar Novo Produto</a>
+
+    {{-- <a class="btn btn-secondary" href="{{route('produtos.edit', 'id')}}" role="button">Editando Produto</a> --}}
 @endsection
 
 

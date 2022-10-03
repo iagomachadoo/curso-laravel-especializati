@@ -50,7 +50,7 @@ class ProdutoController extends Controller
 
     /**
      * Show the form for creating a new resource.
-     * Mostre o formulário para criar um novo recurso.
+     * Mostra o formulário para criar um novo recurso.
      *
      * @return \Illuminate\Http\Response
      */
@@ -61,14 +61,14 @@ class ProdutoController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     * Armazene um recurso recém-criado no armazenamento.
+     * Armazene um recurso recém criado no armazenamento.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        
+        dd('Cadastrando...');
     }
 
     /**
@@ -90,7 +90,7 @@ class ProdutoController extends Controller
      */
     public function edit($id)
     {
-        return 'Mostrar o formulário pra editar um novo Produtos';
+        return view('Admin.pages.produtos.edit' , compact('id'));
         
     }
 
@@ -103,7 +103,7 @@ class ProdutoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        dd("Editando o produto {$id}");
     }
 
     /**

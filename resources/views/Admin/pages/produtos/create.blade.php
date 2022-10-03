@@ -4,22 +4,27 @@
 
 @section('conteudo')
 
-    <form action="" method="post">
-        <div class="mb-3 mt-5">
-          <label for="" class="form-label">Nome do Produto</label>
+  <h1 class="mt-5">Cadastrar Novo Produto</h1>
 
-          <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+  <form action="{{route('produtos.store')}}" method="post">
+      @csrf
 
-          <small id="helpId" class="form-text text-muted">Help text</small>
-        </div>
+      <div class="mb-3 mt-5">
+        <label for="nome" class="form-label">Nome do Produto</label>
 
-        <div class="mb-3">
-          <label for="" class="form-label">Choose file</label>
+        <input type="text" class="form-control" name="nome" id="nome" placeholder="Geladeira">
+      </div>
 
-          <input type="file" class="form-control" name="" id="" placeholder="" aria-describedby="fileHelpId">
+      <div class="mb-3">
+        <label for="descricao" class="form-label">Descrição do produto</label>
 
-          <div id="fileHelpId" class="form-text">Help text</div>
-        </div>
-    </form>
+        <input type="text" class="form-control" name="descricao" id="descricao" placeholder="Duas portas, com 350L ...">
+      </div>
+
+      <button type="submit" class="btn btn-primary">Enviar</button>
+      
+      <a class="btn btn-secondary" href="{{route('produtos.index')}}" role="button">Voltar Para Listagem De Produtos</a>
+  </form>
+
 
 @endsection
