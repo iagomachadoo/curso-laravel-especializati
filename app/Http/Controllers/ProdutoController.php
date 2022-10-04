@@ -68,7 +68,12 @@ class ProdutoController extends Controller
      */
     public function store(Request $request)
     {
-        dd('Cadastrando...');
+        /* dd($request -> all()); */
+        /* dd($request -> only(['nome', 'descricao'])); */
+        /* dd($request -> nome); */
+        /* dd($request -> has('nome')); */
+        /* dd($request -> input('dimensoes', 'valor default')); */
+        /* dd($request -> except('_token', 'nome')); */
     }
 
     /**
