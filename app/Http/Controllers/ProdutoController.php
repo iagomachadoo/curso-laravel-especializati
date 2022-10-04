@@ -50,7 +50,7 @@ class ProdutoController extends Controller
 
     /**
      * Show the form for creating a new resource.
-     * Mostra o formulário para criar um novo recurso.
+     * Mostra o formulário para criar um novo registro.
      *
      * @return \Illuminate\Http\Response
      */
@@ -61,7 +61,7 @@ class ProdutoController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     * Armazene um recurso recém criado no armazenamento.
+     * Armazene um registro recém criado.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -74,6 +74,14 @@ class ProdutoController extends Controller
         /* dd($request -> has('nome')); */
         /* dd($request -> input('dimensoes', 'valor default')); */
         /* dd($request -> except('_token', 'nome')); */
+        if ($request -> file('arquivo')-> isValid()) {
+            
+            //$nomeArquivo = $request->nome . '.' . $request->file('arquivo')->extension();
+            
+            //dd($request->file('arquivo'));
+            //dd($request->file('arquivo')->store('produtos'));
+            //dd($request->file('arquivo')->storeAs('produtos', $nomeArquivo));
+        }
     }
 
     /**
