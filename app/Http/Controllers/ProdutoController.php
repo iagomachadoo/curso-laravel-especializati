@@ -76,11 +76,11 @@ class ProdutoController extends Controller
         /* dd($request -> except('_token', 'nome')); */
         if ($request -> file('arquivo')-> isValid()) {
             
-            //$nomeArquivo = $request->nome . '.' . $request->file('arquivo')->extension();
+            $nomeArquivo = $request->nome . '.' . $request->file('arquivo')->extension();
             
             //dd($request->file('arquivo'));
             //dd($request->file('arquivo')->store('produtos'));
-            //dd($request->file('arquivo')->storeAs('produtos', $nomeArquivo));
+            dd($request->file('arquivo')->storeAs('produtos', $nomeArquivo, 'public'));
         }
     }
 
