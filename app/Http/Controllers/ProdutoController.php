@@ -68,6 +68,14 @@ class ProdutoController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'nome' => 'required|min:3|max:255',
+            'descricao' => 'nullable|min:3|max:10000',
+            'arquivo' => 'required|image',
+        ]);
+
+        dd('OK');
+        
         /* dd($request -> all()); */
         /* dd($request -> only(['nome', 'descricao'])); */
         /* dd($request -> nome); */
