@@ -6,13 +6,13 @@
 
   <h1 class="mt-5">Cadastrar Novo Produto</h1>
 
- {{--  @if ($errors->any())
+  @if ($errors->any())
       <ul>
         @foreach ($errors->all() as $error)
             <li>{{$error}}</li>
         @endforeach
       </ul>
-  @endif --}}
+  @endif
 
   <form action="{{route('produtos.store')}}" method="post" enctype="multipart/form-data">
       @csrf
@@ -20,19 +20,19 @@
       <div class="mb-3 mt-5">
         <label for="nome" class="form-label">Nome do Produto</label>
 
-        <input type="text" class="form-control" name="nome" id="nome" placeholder="Geladeira" required>
+        <input type="text" class="form-control" name="nome" id="nome" placeholder="Geladeira" value="{{old('nome')}}">
       </div>
 
       <div class="mb-3">
         <label for="descricao" class="form-label">Descrição do produto</label>
 
-        <input type="text" class="form-control" name="descricao" id="descricao" placeholder="Duas portas, com 350L ...">
+        <input type="text" class="form-control" name="descricao" id="descricao" placeholder="Duas portas, com 350L ..." value="{{old('descricao')}}">
       </div>
 
       <div class="mb-3">
         <label for="arquivo" class="form-label">Escolha um Arquivo</label>
 
-        <input type="file" class="form-control" name="arquivo" id="arquivo" required>
+        <input type="file" class="form-control" name="arquivo" id="arquivo">
       </div>
 
       <button type="submit" class="btn btn-primary">Enviar</button>
