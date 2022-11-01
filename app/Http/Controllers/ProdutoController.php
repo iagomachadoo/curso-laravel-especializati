@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreUpdateProduto;
+use App\Models\Polts;
+use App\Models\Produto;
 use Illuminate\Http\Request;
 
 class ProdutoController extends Controller
@@ -36,15 +38,18 @@ class ProdutoController extends Controller
      */
     public function index()
     {
-        $teste = 1;
+        /* $teste = 1;
         $teste2 = [];
-        $produtos = ['produto 1', 'produto 2', 'produto 3', 'produto 4', 'geladeira'];
+        $produtos = ['produto 1', 'produto 2', 'produto 3', 'produto 4', 'geladeira']; */
         
         /* return view('teste', [
             'teste' => $teste
         ]); */
 
-        return view('Admin.pages.produtos.index', compact('teste', 'teste2', 'produtos'));
+        $produtos = Produto::all();
+        $polts = Polts::all();
+
+        return view('Admin.pages.produtos.index', compact('produtos', 'polts'));
 
         //$this->request;
     }

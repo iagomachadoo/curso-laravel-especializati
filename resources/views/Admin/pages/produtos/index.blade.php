@@ -147,6 +147,17 @@
     <a class="btn btn-primary" href="{{route('produtos.create')}}" role="button">Cadastrar Novo Produto</a>
 
     {{-- <a class="btn btn-secondary" href="{{route('produtos.edit', 'id')}}" role="button">Editando Produto</a> --}}
+
+    <ul>
+        @foreach ($polts as $polt)
+            <li>
+                <h2>{{ $polt->titulo }}</h2>
+                <p>{{ $polt->conteudo }}</p>
+                <img src="{{ $polt->imagem }}" alt="">
+                <span>{{ $polt->autor }}</span>
+            </li>
+        @endforeach
+    </ul>
 @endsection
 
 
