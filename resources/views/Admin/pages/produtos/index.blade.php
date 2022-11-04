@@ -144,11 +144,11 @@
     --}}
 
     {{-- Trabalhando com formulários --}}
-    <a class="btn btn-primary" href="{{route('produtos.create')}}" role="button">Cadastrar Novo Produto</a>
+    {{-- <a class="btn btn-primary" href="{{route('produtos.create')}}" role="button">Cadastrar Novo Produto</a> --}}
 
     {{-- <a class="btn btn-secondary" href="{{route('produtos.edit', 'id')}}" role="button">Editando Produto</a> --}}
 
-    <ul>
+    {{-- <ul>
         @foreach ($polts as $polt)
             <li>
                 <h2>{{ $polt->titulo }}</h2>
@@ -157,7 +157,27 @@
                 <span>{{ $polt->autor }}</span>
             </li>
         @endforeach
-    </ul>
+    </ul> --}}
+
+    <table>
+        <thead>
+            <tr>
+                <th>Cidade</th>
+                <th>Estado</th>
+                <th>País</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($cidades as $cidade)
+                <tr>
+                    <td>{{ $cidade->cidade}}</td>
+                    <td>{{ $cidade->estado}}</td>
+                    <td>{{ $cidade->pais}}</td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
+    {{ $cidades->links() }}
 @endsection
 
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreUpdateProduto;
+use App\Models\Cidade;
 use App\Models\Polts;
 use App\Models\Produto;
 use Illuminate\Http\Request;
@@ -48,8 +49,10 @@ class ProdutoController extends Controller
 
         $produtos = Produto::all();
         $polts = Polts::all();
+        /* $cidades = Cidade::all(); */
+        $cidades = Cidade::paginate(5);
 
-        return view('Admin.pages.produtos.index', compact('produtos', 'polts'));
+        return view('Admin.pages.produtos.index', compact('produtos', 'polts', 'cidades'));
 
         //$this->request;
     }
