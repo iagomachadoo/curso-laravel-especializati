@@ -17,6 +17,7 @@ class ProdutoFactory extends Factory
             'nome_produto' => $this->faker->lastName(),
             'descricao_produto' => $this->faker->sentence(),
             'codigo_produto' => $this->faker->ean8(),
+            'arquivo' => $this->faker->imageUrl(),
         ];
     }
 }

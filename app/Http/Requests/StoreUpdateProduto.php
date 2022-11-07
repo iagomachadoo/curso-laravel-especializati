@@ -24,20 +24,26 @@ class StoreUpdateProduto extends FormRequest
     public function rules()
     {
         return [
-            'nome' => [
+            'nome_produto' => [
                 'required',
                 'min:3',
                 'max:255'
             ],
 
-            'descricao' => [
+            'descricao_produto' => [
                 'required',
                 'min:3',
                 'max:10000'
             ],
 
-            'arquivo' =>[ 
+            'codigo_produto' => [
                 'required',
+                'min:3',
+                'max:255'
+            ],
+
+            'arquivo' =>[ 
+                'nullabel',
                 'image'
             ],
         ];
@@ -46,10 +52,11 @@ class StoreUpdateProduto extends FormRequest
     public function messages()
     {
         return [
-            'nome.required' => 'Nome obrigatório',
-            'nome.min' => 'Nome deve ter no mínimo 3 caracteres',
-            'descricao.min' => 'Descrição deve ter 3 ou mais caracteres',
-            'arquivo.required' => 'Foto é obrigatória',
+            'nome_produto.required' => 'Nome obrigatório',
+            'nome_produto.min' => 'Nome deve ter no mínimo 3 caracteres',
+            'descricao_produto' => 'Descrição deve ter 3 ou mais caracteres',
+            'codigo_produto.required' => 'Código do produto obrigatório',
+            
         ];
     }
 }

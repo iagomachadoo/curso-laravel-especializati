@@ -49,8 +49,8 @@ class ProdutoController extends Controller
 
         $produtos = Produto::all();
         $polts = Polts::all();
-        /* $cidades = Cidade::all(); */
-        $cidades = Cidade::paginate(5);
+        $cidades = Cidade::all();
+        /* $cidades = Cidade::paginate(5); */
 
         return view('Admin.pages.produtos.index', compact('produtos', 'polts', 'cidades'));
 

@@ -13,5 +13,6 @@ class Produto extends Model
         'nome_produto',
         'descricao_produto',
         'codigo_produto',
+        'arquivo'
     ];
 }

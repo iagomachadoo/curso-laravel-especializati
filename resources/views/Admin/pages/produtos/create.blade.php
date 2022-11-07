@@ -20,13 +20,19 @@
       <div class="mb-3 mt-5">
         <label for="nome" class="form-label">Nome do Produto</label>
 
-        <input type="text" class="form-control" name="nome" id="nome" placeholder="Geladeira" value="{{old('nome')}}">
+        <input type="text" class="form-control" name="nome_produto" id="nome" placeholder="Geladeira" value="{{old('nome')}}">
       </div>
 
       <div class="mb-3">
         <label for="descricao" class="form-label">Descrição do produto</label>
 
-        <input type="text" class="form-control" name="descricao" id="descricao" placeholder="Duas portas, com 350L ..." value="{{old('descricao')}}">
+        <input type="text" class="form-control" name="descricao_produto" id="descricao" placeholder="Duas portas, com 350L ..." value="{{old('descricao_produto')}}">
+      </div>
+
+      <div class="mb-3">
+        <label for="codigo" class="form-label">Código do produto</label>
+
+        <input type="text" class="form-control" name="codigo_produto" id="codigo" placeholder="000365" value="{{old('codigo_produto')}}">
       </div>
 
       <div class="mb-3">

@@ -168,16 +168,17 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($cidades as $cidade)
+            @foreach ($produtos as $produto)
                 <tr>
-                    <td>{{ $cidade->cidade}}</td>
-                    <td>{{ $cidade->estado}}</td>
-                    <td>{{ $cidade->pais}}</td>
+                    <td>{{ $produto->nome_produto}}</td>
+                    <td>{{ $produto->descricao_produto}}</td>
+                    <td>{{ $produto->codigo_produto}}</td>
+                    {{-- <td><img src="{{ $produto->arquivo}}" alt=""></td> --}}
                 </tr>
             @endforeach
         </tbody>
     </table>
-    {{ $cidades->links() }}
+    {{-- {{ $cidades->links() }} --}}
 @endsection
 
 

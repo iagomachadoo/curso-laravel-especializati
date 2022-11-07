@@ -17,7 +17,8 @@ class CreateProdutosTable extends Migration
             $table->id();
             $table->string('nome_produto');
             $table->string('descricao_produto');
-            $table->string('codigo_produto')->unique();;
+            $table->string('codigo_produto')->unique();
+            $table->string('arquivo')->nullable();
             $table->timestamps();
         });
     }
