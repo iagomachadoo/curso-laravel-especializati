@@ -83,7 +83,7 @@ class ProdutoController extends Controller
             'arquivo' => 'required|image',
         ]);
         */
-        dd('OK');
+        /* dd('OK'); */
         
         /* dd($request -> all()); */
         /* dd($request -> only(['nome', 'descricao'])); */
@@ -91,14 +91,22 @@ class ProdutoController extends Controller
         /* dd($request -> has('nome')); */
         /* dd($request -> input('dimensoes', 'valor default')); */
         /* dd($request -> except('_token', 'nome')); */
-        if ($request -> file('arquivo')-> isValid()) {
+        /* if ($request -> file('arquivo')-> isValid()) {
             
             $nomeArquivo = $request->nome . '.' . $request->file('arquivo')->extension();
             
             //dd($request->file('arquivo'));
             //dd($request->file('arquivo')->store('produtos'));
             dd($request->file('arquivo')->storeAs('produtos', $nomeArquivo, 'public'));
-        }
+        } */
+
+        $data = $request->only('nome_produto', 'descricao_produto', 'codigo_produto', 'arquivo');
+    
+        //$data = $request->all();
+        //$produto = Produto::create($data);
+        Produto::create($data);
+
+        return redirect()->route('produtos.index');
     }
 
     /**

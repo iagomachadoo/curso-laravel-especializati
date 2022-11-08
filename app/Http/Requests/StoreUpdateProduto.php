@@ -42,8 +42,7 @@ class StoreUpdateProduto extends FormRequest
                 'max:255'
             ],
 
-            'arquivo' =>[ 
-                'nullabel',
+            'arquivo' => [ 
                 'image'
             ],
         ];
