@@ -100,9 +100,9 @@ class ProdutoController extends Controller
             dd($request->file('arquivo')->storeAs('produtos', $nomeArquivo, 'public'));
         } */
 
-        $data = $request->only('nome_produto', 'descricao_produto', 'codigo_produto', 'arquivo');
+        //$data = $request->only('nome_produto', 'descricao_produto', 'codigo_produto', 'arquivo');
     
-        //$data = $request->all();
+        $data = $request->all();
         //$produto = Produto::create($data);
         Produto::create($data);
 
