@@ -178,6 +178,12 @@
             @endforeach
         </tbody>
     </table>
+
+    <form action="{{ route('produtos.destroy', $produto->id)}}" method="POST">
+        @csrf
+        @method('DELETE')
+        <button type="submit">Deletar o produto: {{$produto->nome_produto}}</button>
+    </form>
     {{-- {{ $cidades->links() }} --}}
 @endsection
 

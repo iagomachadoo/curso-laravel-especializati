@@ -152,6 +152,6 @@ class ProdutoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        dd("Deletando o produto $id");
     }
 }
